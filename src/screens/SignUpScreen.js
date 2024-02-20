@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   ActivityIndicator,
+  Image,
 } from "react-native";
 
 import { authentication } from "../firebase/config";
@@ -35,41 +36,43 @@ const SignUpScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Sign Up</Text>
+      <Image
+        source={require("../assets1/logoapp.png")} // Ruta de tu imagen local
+        style={styles.logo}
+      />
       <TextInput
         style={styles.input}
         placeholder="Email"
         keyboardType="email-address"
+        placeholderTextColor="#ffffff" // Color del texto del marcador de posición
         autoCapitalize="none"
         value={email}
         onChangeText={(text) => setEmail(text)}
+        color="#ffffff" // Color del texto ingresado
       />
       <TextInput
         style={styles.input}
         placeholder="Password"
+        placeholderTextColor="#ffffff"
         secureTextEntry
         value={password}
         onChangeText={(text) => setPassword(text)}
+        color="#ffffff" // Color del texto ingresado
       />
       <TextInput
         style={styles.input}
+        placeholderTextColor="#ffffff"
         placeholder="Confirm Password"
         secureTextEntry
         value={confirmPassword}
         onChangeText={(text) => setConfirmPassword(text)}
+        color="#ffffff" // Color del texto ingresado
       />
       <TouchableOpacity onPress={handleSignUp} style={styles.button}>
-        <Text style={styles.buttonText}>Sign Up</Text>
-        {isLoading && (
-          <ActivityIndicator
-            size="small"
-            color="white"
-            style={{
-              alignSelf: "center",
-              justifyContent: "center",
-              paddingLeft: 10,
-            }}
-          />
+        {isLoading ? (
+          <ActivityIndicator size="small" color="#ffffff" />
+        ) : (
+          <Text style={styles.buttonText}>Sign Up</Text>
         )}
       </TouchableOpacity>
     </View>
@@ -81,12 +84,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#ffffff",
+    backgroundColor: "black",
     paddingHorizontal: 20,
   },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
+  logo: {
+    width: 150,
+    height: 150,
     marginBottom: 20,
   },
   input: {
@@ -97,9 +100,10 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 16,
     paddingLeft: 8,
+    color: "#ffffff", // Color del texto ingresado
   },
   button: {
-    backgroundColor: "#007BFF",
+    backgroundColor: "green",
     width: "100%",
     paddingVertical: 15,
     borderRadius: 10,

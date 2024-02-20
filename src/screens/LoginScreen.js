@@ -47,9 +47,7 @@ const LoginScreen = ({ navigation }) => {
     <View style={styles.container}>
       <Text style={styles.welcomeText}>Welcome!</Text>
       <Image
-        source={{
-          uri: "https://ouch-cdn2.icons8.com/teMbWzQG6l5J7CQqv4TiWL2pvjv9-A1IUmfuhymu3zw/rs:fit:608:456/extend:false/wm:1:re:0:0:0.8/wmid:ouch/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvMzIy/LzEzODJjMmMwLThj/M2YtNGQ4Yy1iODk0/LWRkYTRhMDI3ZGFl/OS5zdmc.png",
-        }}
+        source={require("../assets1/logoapp.png")} // Ruta de tu imagen local
         style={styles.logo}
       />
 
@@ -59,7 +57,7 @@ const LoginScreen = ({ navigation }) => {
         placeholder="Enter your email"
         keyboardType="email-address"
         autoCapitalize="none"
-        placeholderTextColor="#003f5c"
+        placeholderTextColor="green"
         value={email}
         onChangeText={(email) => setEmail(email)}
       />
@@ -68,7 +66,7 @@ const LoginScreen = ({ navigation }) => {
         ref={passwordRef}
         style={styles.input}
         placeholder="Enter your password"
-        placeholderTextColor="#003f5c"
+        placeholderTextColor="green"
         value={password}
         secureTextEntry
         onChangeText={(text) => setPassword(text)}
@@ -89,16 +87,6 @@ const LoginScreen = ({ navigation }) => {
           />
         )}
       </TouchableOpacity>
-      <View
-        style={{
-          flexDirection: "row",
-        }}
-      >
-        <Text style={styles.downText}>Don't have an account?</Text>
-        <TouchableOpacity onPress={() => navigation.navigate("signup")}>
-          <Text style={styles.signup}>Sign Up</Text>
-        </TouchableOpacity>
-      </View>
     </View>
   );
 };
@@ -109,6 +97,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 20,
+    backgroundColor: "black", // Cambiar el fondo a negro
   },
   label: {
     fontSize: 16,
@@ -122,9 +111,10 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     paddingLeft: 8,
     paddingRight: 8,
+    color: "#ffffff", // Color del texto ingresado
   },
   button: {
-    backgroundColor: "#302298",
+    backgroundColor: "green",
     borderRadius: 20,
     padding: 10,
     margin: 14,
@@ -151,21 +141,6 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     marginBottom: 20,
-  },
-  downText: {
-    color: "#331ece",
-    fontSize: 16,
-    fontWeight: "400",
-    marginTop: 10,
-  },
-  signup: {
-    alignSelf: "flex-start",
-    textDecorationLine: "underline",
-    color: "#331ece",
-    fontSize: 16,
-    fontWeight: "500",
-    marginLeft: 5,
-    marginTop: 10,
   },
 });
 
