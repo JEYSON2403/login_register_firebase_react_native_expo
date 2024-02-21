@@ -15,16 +15,8 @@ const HomeScreen = () => {
     navigation.navigate("EstadisticaScreen");
   };
 
-  const handleLogout = () => {
-    // Redirigir a la pantalla de inicio de sesión (WelcomeScreen)
-    navigation.navigate("Welcome");
-  };
-
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity onPress={handleLogout} style={styles.logoutButton}>
-        <Image source={require("../assets1/salida.png")} style={styles.logoutButtonImage} />
-      </TouchableOpacity>
       <View style={styles.imageContainer}>
         <Image source={require("../assets1/curva.png")} style={styles.image} />
       </View>
@@ -45,16 +37,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-  },
-  logoutButton: {
-    position: "absolute",
-    top: 30,
-    right: 20,
-    padding: 15, // Aumenta el tamaño del padding para hacer el botón más grande
-  },
-  logoutButtonImage: {
-    width: 32, // Ajusta el tamaño de la imagen según sea necesario
-    height: 32,
   },
   imageContainer: {
     flex: 1,
