@@ -4,18 +4,13 @@ import HomeScreen from "../screens/HomeScreen";
 import ViveroScreen from "../screens/ViveroScreen";
 import RiegoScreen from "../screens/RiegoScreen";
 import EstadisticaScreen from "../screens/EstadisticaScreen";
-import WelcomeScreen from "../screens/WelcomeScreen"; // Import the WelcomeScreen
 
 const Stack = createNativeStackNavigator();
 
 const AppStack = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen
-        name="Welcome"  // Set the screen name to "Welcome"
-        component={WelcomeScreen}  // Set the component to WelcomeScreen
-        options={{ headerShown: false }}
-      />
+
       <Stack.Screen
         name="Home"
         component={HomeScreen}
